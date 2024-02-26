@@ -4,7 +4,7 @@ class Food {
         return Property.get({ kind: null }, String, Food);
     }
     set kind(value) {
-        Property.set({ kind: null }, String, Food, value);
+        Property.set({ kind: value }, String, Food);
     }
 }
 describe('Property Specifiction Test: ', () => {
