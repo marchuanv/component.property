@@ -1,7 +1,7 @@
 import { Properties } from "../../registry.mjs";
 export class Food extends Properties {
     constructor() {
-        super('component.types.animal', Food);
+        super(Food);
     }
     /**
      * @returns { String }
