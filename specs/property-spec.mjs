@@ -18,4 +18,13 @@ describe('Property Specifiction Test: ', () => {
             expect(food.kind).toBe('5a101433-db49-49fe-89f0-49e204212a9e');
         });
     });
+    describe(`when getting all properties given a class`, () => {
+        let properties = [];
+        beforeAll(() => {
+            properties = Array.from(Property.all(Food));
+        });
+        it(`should return all properties of a class`, () => {
+            expect(properties.length).toBeGreaterThan(0);
+        });
+    });
 });
