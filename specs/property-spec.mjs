@@ -1,18 +1,61 @@
+import { PropertyOptions } from '../registry.mjs';
 import { Food } from './index.mjs';
 describe('Property Specifiction Test: ', () => {
-    describe(`when creating a property given a property name and type, a target class and a value`, () => {
-        let food = null;
+    describe(`when constructing the ${Food.name} class given default property options`, () => {
+        let foodA = null;
+        let foodB = null;
         beforeAll(() => {
-            food = new Food();
-            food.name = 'epol';
-            food.isAdultFood = true;
+            
+            const propertyOptions = new PropertyOptions();
+            
+            foodA = new Food(propertyOptions);
+            foodA.name = 'dogmore';
+            foodA.isAdultFood = false;
+
+            foodB = new Food(propertyOptions);
+            foodB.name = 'epol';
+            foodB.isAdultFood = true;
+
         });
-        it(`should match set properties`, () => {
-            expect(food.name).toBe('epol');
-            expect(food.isAdultFood).toBeTrue();
+        it(`should not behave as a singleton`, () => {
+            
+            expect(foodA.name).toBe('dogmore');
+            expect(foodA.isAdultFood).toBeFalse();
+            expect(foodA.properties.length).toBeGreaterThan(0);
+
+            expect(foodB.name).toBe('epol');
+            expect(foodB.isAdultFood).toBeTrue();
+            expect(foodB.properties.length).toBeGreaterThan(0);
+            
         });
-        it(`should return all properties of a class`, () => {
-            expect(food.properties.length).toBeGreaterThan(0);
+    });
+    describe(`when constructing the ${Food.name} class given specific property options`, () => {
+        let foodA = null;
+        let foodB = null;
+        beforeAll(() => {
+            
+            const propertyOptions = new PropertyOptions();
+            propertyOptions.isSingleton = true;
+
+            foodA = new Food(propertyOptions);
+            foodA.name = 'dogmore';
+            foodA.isAdultFood = false;
+
+            foodB = new Food(propertyOptions);
+            foodB.name = 'epol';
+            foodB.isAdultFood = true;
+
+        });
+        it(`should behave as a singleton`, () => {
+            
+            expect(foodA.name).toBe('dogmore');
+            expect(foodA.isAdultFood).toBeFalse();
+            expect(foodA.properties.length).toBeGreaterThan(0);
+
+            expect(foodB.name).toBe('dogmore');
+            expect(foodB.isAdultFood).toBeFalse();
+            expect(foodB.properties.length).toBeGreaterThan(0);
+
         });
     });
 });
