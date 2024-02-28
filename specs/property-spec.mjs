@@ -17,7 +17,7 @@ describe('Property Specifiction Test: ', () => {
             foodB.isAdultFood = true;
 
         });
-        it(`should not behave as a singleton`, () => {
+        it(`should not behave like a singleton`, () => {
             
             expect(foodA.name).toBe('dogmore');
             expect(foodA.isAdultFood).toBeFalse();
@@ -29,7 +29,7 @@ describe('Property Specifiction Test: ', () => {
             
         });
     });
-    describe(`when constructing the ${Food.name} class given specific property options`, () => {
+    describe(`when constructing the ${Food.name} class given singleton property options`, () => {
         let foodA = null;
         let foodB = null;
         beforeAll(() => {
@@ -46,14 +46,14 @@ describe('Property Specifiction Test: ', () => {
             foodB.isAdultFood = true;
 
         });
-        it(`should behave as a singleton`, () => {
+        it(`should behave like a singleton`, () => {
             
-            expect(foodA.name).toBe('dogmore');
-            expect(foodA.isAdultFood).toBeFalse();
+            expect(foodA.name).toBe('epol');
+            expect(foodA.isAdultFood).toBeTrue();
             expect(foodA.properties.length).toBeGreaterThan(0);
 
-            expect(foodB.name).toBe('dogmore');
-            expect(foodB.isAdultFood).toBeFalse();
+            expect(foodB.name).toBe('epol');
+            expect(foodB.isAdultFood).toBeTrue();
             expect(foodB.properties.length).toBeGreaterThan(0);
 
         });
