@@ -1,10 +1,10 @@
 import { Properties, PropertyOptions } from "../../registry.mjs";
 export class Food extends Properties {
     /**
-     * @param { PropertyOptions } propertyOptions
+     * @param { PropertyOptions } options
     */
-    constructor(propertyOptions) {
-        super(Food, propertyOptions);
+    constructor(options) {
+        super(options);
     }
     /**
      * @returns { String }
