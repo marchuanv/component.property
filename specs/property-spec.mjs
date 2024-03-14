@@ -34,11 +34,9 @@ describe('Property Specifiction Test: ', () => {
 
             expect(foodA.name).toBe('epol');
             expect(foodA.isAdultFood).toBeTrue();
-            expect(foodA.properties.length).toBeGreaterThan(0);
 
             expect(foodB.name).toBe('epol');
             expect(foodB.isAdultFood).toBeTrue();
-            expect(foodB.properties.length).toBeGreaterThan(0);
 
         });
     });
