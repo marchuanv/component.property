@@ -1,15 +1,16 @@
-import { PropertyOptions } from '../registry.mjs';
+import { PropertiesContext } from '../registry.mjs';
 import { Food } from './index.mjs';
 describe('Property Specifiction Test: ', () => {
     describe(`when constructing the ${Food.name} class given default property options`, () => {
         it(`should not behave like a singleton`, () => {
-            const options = new PropertyOptions();
+            const contextA = new PropertiesContext(Food);
+            const contextB = new PropertiesContext(Food);
 
-            const foodA = new Food(options);
+            const foodA = new Food(contextA);
             foodA.name = 'dogmore';
             foodA.isAdultFood = false;
 
-            const foodB = new Food(options);
+            const foodB = new Food(contextB);
             foodB.name = 'epol';
             foodB.isAdultFood = true;
 
@@ -21,14 +22,14 @@ describe('Property Specifiction Test: ', () => {
     });
     describe(`when constructing the ${Food.name} class given singleton property options`, () => {
         it(`should behave like a singleton`, () => {
-            const propertyOptions = new PropertyOptions();
-            propertyOptions.isSingleton = true;
+            const contextA = new PropertiesContext(Food, true);
+            const contextB = new PropertiesContext(Food, true);
 
-            const foodA = new Food(propertyOptions);
+            const foodA = new Food(contextA);
             foodA.name = 'dogmore';
             foodA.isAdultFood = false;
 
-            const foodB = new Food(propertyOptions);
+            const foodB = new Food(contextB);
             foodB.name = 'epol';
             foodB.isAdultFood = true;
 
@@ -37,7 +38,6 @@ describe('Property Specifiction Test: ', () => {
 
             expect(foodB.name).toBe('epol');
             expect(foodB.isAdultFood).toBeTrue();
-
         });
     });
 });

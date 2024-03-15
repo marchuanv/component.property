@@ -1,8 +1,5 @@
 import { Properties, } from "../../registry.mjs";
 export class Animal extends Properties {
-    constructor(options) {
-        super(options);
-    }
     /**
      * @returns { String }
     */
