@@ -1,4 +1,4 @@
-import { PropertiesReferenceContext, PropertiesTypeRegister, PropertyReference, PropertyTypeRegister, Reference, Type, TypeRegister } from '../registry.mjs';
+import { PropertiesReferenceContext, PropertiesTypeRegister, PropertyTypeRegister, Type } from '../registry.mjs';
 import { Dog, Food } from './index.mjs';
 new Type(Food);
 new Type(Dog);
@@ -10,8 +10,8 @@ const foodProperties = [
     new PropertyTypeRegister(Food, 'name', String, true, true),
     new PropertyTypeRegister(Food, 'isAdultFood', Boolean, true, true)
 ];
-const dogPropertiesTypeRegister =  new PropertiesTypeRegister(dogProperties, Dog);
-const foodPropertiesTypeRegister =  new PropertiesTypeRegister(foodProperties, Food);
+const dogPropertiesTypeRegister = new PropertiesTypeRegister(dogProperties, Dog);
+const foodPropertiesTypeRegister = new PropertiesTypeRegister(foodProperties, Food);
 describe('Properties Specifiction Test: ', () => {
     describe(`when constructing the ${Food.name} class given default reference context`, () => {
         it(`should not behave like a singleton`, () => {
