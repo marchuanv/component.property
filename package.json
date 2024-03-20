@@ -29,7 +29,7 @@
     "homepage": "https://github.com/marchuanv/component.property#readme",
     "dependencies": {
         "component.specs": "marchuanv/component.specs",
-        "component.uuid": "marchuanv/component.uuid",
+        "component.store": "marchuanv/component.store",
         "component.reference": "marchuanv/component.reference",
         "utils": "marchuanv/utils"
     }
