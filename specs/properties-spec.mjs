@@ -54,6 +54,10 @@ describe('Properties Specifiction Test: ', () => {
 
             const dogA = new Dog(dogContextA);
             dogA.name = 'Luna';
+            dogA.onSet({ name: null }, String, (value) => {
+                expect(value).toBe('Bella');
+                return value;
+            });
             dogA.food = new Food(foodContextA);
             dogA.food.name = 'dogmore';
             dogA.food.isAdultFood = false;
